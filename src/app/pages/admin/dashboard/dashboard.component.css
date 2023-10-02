@@ -1,0 +1,17 @@
+mat-drawer {
+    width: 20vw; 
+    background-color: palevioletred; 
+    margin-left: -13px !important;
+    color: #e2e2e2;
+}
+
+mat-drawer mat-action-list button{
+    color: #e2e2e2;
+}
+mat-drawer mat-action-list :hover {
+    background-color: #e2e2e2 !important;
+    border-radius: 8px;
+    margin-left: 15px;
+    animation: normal;
+    transition: all 0.3s;
+}

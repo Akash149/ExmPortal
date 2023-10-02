@@ -1,0 +1,104 @@
+<div
+class="modal"
+tabindex="-1"
+role="dialog"
+[ngStyle]="{'display':displayStyle}">
+<div class="modal-dialog" role="document">
+    <div class="modal-content">
+    <div class="modal-header">
+        <div class="container">
+            <h4 class="modal-title text-center text-success"><b>Update Question</b></h4>
+        </div>
+    </div>
+    <div class="modal-body">
+        {{question | json}}
+        <mat-card-content>
+            <form>
+                <!-- content field -->
+                <mat-form-field class="w100 mt-2" appearance="outline">
+                    <mat-label>Write question content</mat-label>
+                    <textarea required
+                    matInput
+                    placeholder="Enter here"
+                    [(ngModel)]="question.content"
+                    name="content" 
+                    rows="5"></textarea>
+                </mat-form-field>
+
+                <!-- options -->
+                <div class="row">
+                    <div class="col-md-6">
+                        <mat-form-field class="w100" appearance="outline">
+                            <mat-label>Enter Option1</mat-label>
+                            <input matInput 
+                            [(ngModel)]="question.option1"
+                            type="text" name="otpion1" 
+                            placeholder="Enter option1" required>
+                        </mat-form-field>
+                    </div>
+                    <div class="col-md-6">
+                        <mat-form-field class="w100" appearance="outline">
+                            <mat-label>Enter Option2</mat-label>
+                            <input matInput 
+                            type="text" 
+                            [(ngModel)]="question.option2"
+                            name="otpion2" 
+                            placeholder="Enter option2" 
+                            required>
+                        </mat-form-field>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <mat-form-field class="w100" appearance="outline">
+                            <mat-label>Enter Option3</mat-label>
+                            <input matInput 
+                            type="text" 
+                            [(ngModel)]="question.option3"
+                            name="otpion3" 
+                            placeholder="Enter option3" 
+                            required>
+                        </mat-form-field>
+                    </div>
+                    <div class="col-md-6">
+                        <mat-form-field class="w100" appearance="outline">
+                            <mat-label>Enter Option4</mat-label>
+                            <input matInput 
+                            type="text" 
+                            [(ngModel)]="question.option4"
+                            name="otpion4" 
+                            placeholder="Enter option4" 
+                            required>
+                        </mat-form-field>
+                    </div>
+                </div>
+
+                <!-- answer -->
+                <mat-form-field class="w100" appearance="outline">
+                    <mat-label>Select answer</mat-label>
+                    <mat-select [(ngModel)]="question.answer" name="answer" required>
+                        <mat-option *ngIf="question.option1" [value]="question.option1">{{ question.option1}}</mat-option>
+                        <mat-option *ngIf="question.option2" [value]="question.option2">{{ question.option2}}</mat-option>
+                        <mat-option *ngIf="question.option3" [value]="question.option3">{{ question.option3}}</mat-option>
+                        <mat-option *ngIf="question.option4" [value]="question.option4">{{ question.option4}}</mat-option>
+                    </mat-select>
+                </mat-form-field>
+
+                <div class="container text-center">
+                    <button
+                    type="submit"
+                    mat-raised-button 
+                    color="accent">Save</button>
+                </div>
+            </form>
+        </mat-card-content>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-danger" 
+                (click)="closePopup()">
+        Close
+        </button>
+    </div>
+    </div>
+</div>
+</div>
