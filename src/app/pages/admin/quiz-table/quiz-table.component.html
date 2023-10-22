@@ -1,0 +1,63 @@
+
+<mat-form-field appearance="outline" class="w100">
+    <mat-label>Filter</mat-label>
+    <input matInput type="text" 
+    (keyup)="filterChanged($event)"
+    placeholder="filter">
+</mat-form-field>
+
+<table mat-table matsort [dataSource]="datasource" class="mat-elevation-z8">
+
+    <!--- Note that these columns can be defined in any order.
+          The actual rendered columns are set as a property on the row definition" -->
+  
+    <!-- Position Column -->
+    <ng-container matColumnDef="id">
+      <th mat-header-cell mat-sort-header *matHeaderCellDef> ID </th>
+      <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+    </ng-container>
+  
+    <!-- Name Column -->
+    <ng-container matColumnDef="title">
+      <th mat-header-cell *matHeaderCellDef> Title </th>
+      <td mat-cell *matCellDef="let element"> {{element.title}} </td>
+    </ng-container>
+  
+    <!-- Weight Column -->
+    <ng-container matColumnDef="category">
+      <th mat-header-cell *matHeaderCellDef> Category </th>
+      <td mat-cell *matCellDef="let element"> {{element.category.title}} </td>
+    </ng-container>
+
+    <!-- Weight Column -->
+    <ng-container matColumnDef="maxMarks">
+      <th mat-header-cell *matHeaderCellDef> Max Marks </th>
+      <td mat-cell *matCellDef="let element"> {{element.maxMarks}} </td>
+    </ng-container>
+  
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="numberOfQuestions">
+      <th mat-header-cell *matHeaderCellDef> Total Questions </th>
+      <td mat-cell *matCellDef="let element"> {{element.numberOfQuestions}} </td>
+    </ng-container>
+
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="action">
+      <th mat-header-cell *matHeaderCellDef> Action </th>
+      <td mat-cell *matCellDef="let element"> 
+        <button mat-mini-fab (click)="edit(element.id)">
+           <mat-icon>menu</mat-icon>
+        </button> 
+        <button mat-mini-fab class="ml10" color="warn">
+           <mat-icon>delete</mat-icon>
+        </button> 
+    </td>
+    </ng-container>
+  
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr (click)="getRow(row)" mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+
+  <mat-paginator [pageSizeOptions]="[2,4,6]" showFirstLastButtons>
+
+  </mat-paginator>

@@ -31,6 +31,7 @@ import { SidebarComponent } from './pages/admin/sidebar/sidebar.component';
 import { WelcomeComponent } from './pages/admin/welcome/welcome.component';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import {MatBadgeModule} from '@angular/material/badge';
+import {MatPaginator, MatPaginatorModule} from '@angular/material/paginator';
 import {MatDialogModule} from '@angular/material/dialog';
 import { SidenavbarComponent } from './components/sidenavbar/sidenavbar.component';
 import { ViewCategoriesComponent } from './pages/admin/view-categories/view-categories.component';
@@ -48,6 +49,7 @@ import { LoadQuizComponent } from './pages/user/load-quiz/load-quiz.component';
 import { InstructionsComponent } from './pages/user/instructions/instructions.component';
 import { StartQuizComponent } from './pages/user/start-quiz/start-quiz.component';
 import { NgxUiLoaderModule, NgxUiLoaderHttpModule } from 'ngx-ui-loader';
+import { QuizTableComponent } from './pages/admin/quiz-table/quiz-table.component';
 
 @NgModule({
   declarations: [
@@ -74,6 +76,7 @@ import { NgxUiLoaderModule, NgxUiLoaderHttpModule } from 'ngx-ui-loader';
     LoadQuizComponent,
     InstructionsComponent,
     StartQuizComponent,
+    QuizTableComponent,
   ],
   imports: [
     BrowserModule,
@@ -90,6 +93,7 @@ import { NgxUiLoaderModule, NgxUiLoaderHttpModule } from 'ngx-ui-loader';
     MatToolbarModule,
     MatListModule,
     MatSelectModule,
+    MatPaginatorModule,
     MatDialogModule,
     MatSlideToggleModule,
     MatDividerModule,
